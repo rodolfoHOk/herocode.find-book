@@ -17,3 +17,7 @@
 ## Como rodar
 
 - em breve
+
+## Links
+
+- [Figma Design](<https://www.figma.com/design/7GAqfEmKoCttFy00mVSB23/FindBook-(Copy)?node-id=0-1&t=wurF1ytvX5x2ZSPI-0>)

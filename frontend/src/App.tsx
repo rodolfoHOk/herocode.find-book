@@ -1,9 +1,11 @@
 function App() {
   return (
     <>
-      <h1 className="bg-gray-950 text-red-500">Hello world!</h1>
+      <h1 className="bg-evergreen font-bold text-3xl text-evergreen-light">
+        Hello world!
+      </h1>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
