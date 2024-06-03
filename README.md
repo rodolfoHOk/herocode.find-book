@@ -1,6 +1,6 @@
 # Fink Book
 
-> Projeto Hero Code
+> Projeto Semana do Herói 4a edição da Hero Code
 
 ## Tecnologias
 
@@ -12,4 +12,8 @@
 
 ### Backend
 
-## Rodar
+- em breve
+
+## Como rodar
+
+- em breve
