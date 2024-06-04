@@ -1,7 +1,7 @@
 import { Container } from '../Container/Container'
 import { HeaderTitle } from './HeaderTitle'
-import backgroundImage from '../../assets/images/background-header.png'
 import { Button } from '../Button/Button'
+import backgroundImage from '../../assets/images/background-header.png'
 
 export function Header() {
   return (
@@ -9,7 +9,7 @@ export function Header() {
       style={{
         backgroundImage: `url(${backgroundImage})`,
       }}
-      className=" w-auto bg-cover bg-center bg-no-repeat"
+      className="w-auto bg-cover bg-center bg-no-repeat"
     >
       <Container>
         <HeaderTitle />
@@ -21,7 +21,7 @@ export function Header() {
 
           <p className="text-gray-500 mt-5 mb-8 text-xl">Lorem ipsum</p>
 
-          <Button title="Pesquisar livros" />
+          <Button title="Pesquisar livros" className="px-6" />
         </div>
       </Container>
     </header>
