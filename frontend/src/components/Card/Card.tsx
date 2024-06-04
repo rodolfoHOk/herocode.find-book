@@ -1,21 +1,26 @@
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../Button/Button'
 import { Tag } from '../Tag/Tag'
+import { useCallback } from 'react'
 
 type CardProps = {
   id: string
 }
 
 export function Card({ id }: CardProps) {
+  const navigate = useNavigate()
+
+  const handleSelectBook = useCallback(() => {
+    navigate(`/${id}`)
+  }, [id, navigate])
+
   return (
-    <div
-      key={id}
-      className="w-full max-w-lg p-4 flex flex-row gap-2 border border-gray-100 rounded-lg shadow-lg"
-    >
-      <div className="w-48">
+    <div className="w-full max-w-lg p-4 flex flex-row gap-2 border border-gray-100 rounded-lg shadow-lg">
+      <div className="w-48 h-full flex items-center">
         <img
           src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/allen.jpg"
           alt=""
-          className="rounded-lg w-full h-full"
+          className="rounded-lg w-full"
         />
       </div>
 
@@ -33,7 +38,12 @@ export function Card({ id }: CardProps) {
           pulvinar dignissim
         </p>
 
-        <Button title="Ver mais" variant="outlined" className="py-1.5 w-1/2" />
+        <Button
+          title="Ver mais"
+          variant="outlined"
+          className="py-1.5 w-1/2"
+          onClick={handleSelectBook}
+        />
       </div>
     </div>
   )

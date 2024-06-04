@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react'
 import { Button } from '../../components/Button/Button'
+import { Card } from '../../components/Card/Card'
 import { Container } from '../../components/Container/Container'
 import { Header } from '../../components/Header/Header'
+import { Input } from '../../components/Input/Input'
 import { Title } from '../../components/Title/Title'
-import { Card } from '../../components/Card/Card'
 
 const genderBooks = [
   'Ação',
@@ -52,10 +53,7 @@ export function Home() {
             Sobre o que você gostaria de receber uma recomendação de livro?
           </p>
 
-          <input
-            className="w-full my-3 p-3 border-2 border-gray-200 rounded-lg outline-none shadow-lg"
-            placeholder="Eu gostaria de ler..."
-          />
+          <Input placeholder="Eu gostaria de ler..." />
         </div>
 
         <Title title="Livros  recomendados" className="mt-16" />
