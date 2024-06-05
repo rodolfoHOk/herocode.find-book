@@ -1,17 +1,24 @@
 import express, { Application } from 'express';
 import cors from 'cors';
+import { errorMiddleware } from '../middlewares/error.middleware';
 
 class Express {
   app: Application;
 
   constructor() {
     this.app = express();
+    this.initMiddlewares();
+    this.errorMiddleware();
   }
 
-  initMiddlewares() {
+  private initMiddlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cors());
+  }
+
+  private errorMiddleware() {
+    this.app.use(errorMiddleware);
   }
 
   listen() {
@@ -19,4 +26,4 @@ class Express {
   }
 }
 
-export default Express;
+export { Express };
