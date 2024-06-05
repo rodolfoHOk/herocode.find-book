@@ -25,6 +25,13 @@
 
 - express
 - cors
+- zod
+
+## Recursos
+
+[] - cadastrar um livro
+[] - atualizar um livro
+[] - retornar uma consulta de pesquisa do frontend
 
 ## Como rodar
 

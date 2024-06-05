@@ -7,8 +7,8 @@ export function errorMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  return res.status(500).json({
-    statusCode: 500,
+  return res.status(err.status).json({
+    status: err.status,
     message: err.message || 'internal server error',
   });
 }
