@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 
-class App {
+class Express {
   app: Application;
 
   constructor() {
@@ -19,4 +19,4 @@ class App {
   }
 }
 
-export default App;
+export default Express;
