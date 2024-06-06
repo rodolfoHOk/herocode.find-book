@@ -21,6 +21,7 @@
 - Node Js
 - REST API
 - Clean Architecture
+- OpenIA generative IA
 
 #### Bibliotecas adicionais
 
@@ -29,6 +30,7 @@
 - zod
 - mongoose
 - dotenv
+- openai
 
 ## Recursos
 

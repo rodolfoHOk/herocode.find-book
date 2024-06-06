@@ -22,8 +22,8 @@ class BooksController {
 
   async find(request: HttpRequest): Promise<HttpResponse> {
     try {
-      const queryParams: BookDto = request.query;
-      const response = await this.booksUseCases.findBook(queryParams);
+      const search: string = request.query.search;
+      const response = await this.booksUseCases.searchBooks(search);
       if (!response) {
         return { status: 404, message: 'Book not found' };
       }
