@@ -9,4 +9,6 @@ export const bookRoutes = (router: Router) => {
   const booksController = new BooksController(booksUseCases);
 
   router.post('/books', routerAdapter(booksController, 'create'));
+  router.get('/books', routerAdapter(booksController, 'find'));
+  router.put('/books/:id', routerAdapter(booksController, 'update'));
 };
