@@ -1,6 +1,10 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import { bookRoutes } from '../routes/books.routes';
+import { dbConnect } from '../database/mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 class Express {
   app: Application;
@@ -18,7 +22,10 @@ class Express {
   }
 
   listen() {
-    this.app.listen(3333, () => console.log('Server is running on port 3333'));
+    this.app.listen(3333, () => {
+      dbConnect();
+      console.log('Server is running on port 3333');
+    });
   }
 }
 

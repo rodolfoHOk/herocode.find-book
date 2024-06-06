@@ -26,10 +26,12 @@
 - express
 - cors
 - zod
+- mongoose
+- dotenv
 
 ## Recursos
 
-[] - cadastrar um livro
+[] - cadastrar um livro // stop A2 45:00
 [] - atualizar um livro
 [] - retornar uma consulta de pesquisa do frontend
 
