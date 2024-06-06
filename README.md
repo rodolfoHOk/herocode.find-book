@@ -19,7 +19,8 @@
 
 - Typescript / Javascript
 - Node Js
-- REST
+- REST API
+- Clean Architecture
 
 #### Bibliotecas adicionais
 
@@ -31,13 +32,28 @@
 
 ## Recursos
 
-[] - cadastrar um livro // stop A2 45:00
-[] - atualizar um livro
-[] - retornar uma consulta de pesquisa do frontend
+[x] cadastrar um livro
+
+[x] atualizar um livro
+
+[x] retornar uma consulta de pesquisa do frontend
 
 ## Como rodar
 
-- em breve
+### Backend
+
+- criar um cluster no MongoDB Atlas
+- criar um usuário do banco de dados no MongoDB Atlas
+- copiar a string de conexão para o MongoDB Compass
+- adicionar a string de conexão com o nome de usuário e senha criados no .env DATABASE_URL
+- entrar na pasta backend
+- rodar o comando: npm run dev
+
+### Frontend
+
+- entrar na pasta frontend
+- rodar o comando: npm run dev
+- acessar: http://localhost:5173
 
 ## Links
 
