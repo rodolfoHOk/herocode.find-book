@@ -30,7 +30,7 @@ class BooksMongooseRepository implements BooksRepository {
     return result ? result.toObject() : null;
   }
 
-  async update(dto: BookDto, id: string): Promise<BookEntity | null> {
+  async update(id: string, dto: BookDto): Promise<BookEntity | null> {
     const result = await Books.findByIdAndUpdate(id, dto);
     return result ? result.toObject() : null;
   }

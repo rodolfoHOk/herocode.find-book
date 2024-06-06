@@ -1,4 +1,5 @@
 type BookEntityProps = {
+  _id?: string | null | undefined;
   title?: string | null | undefined;
   isbn?: string | null | undefined;
   pageCount: number | null | undefined;
@@ -12,6 +13,7 @@ type BookEntityProps = {
 };
 
 class BookEntity {
+  _id?: string | null | undefined;
   title?: string | null | undefined;
   isbn?: string | null | undefined;
   pageCount: number | null | undefined;
@@ -24,6 +26,7 @@ class BookEntity {
   categories: string[];
 
   constructor(props: BookEntityProps) {
+    this._id = props._id;
     this.title = props.title;
     this.isbn = props.isbn;
     this.pageCount = props.pageCount;

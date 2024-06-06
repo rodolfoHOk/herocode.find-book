@@ -6,7 +6,7 @@ abstract class BooksRepository {
 
   abstract find(dto: BookDto): Promise<BookEntity | null>;
 
-  abstract update(dto: BookDto, id: string): Promise<BookEntity | null>;
+  abstract update(id: string, dto: BookDto): Promise<BookEntity | null>;
 }
 
 export { BooksRepository };
