@@ -3,12 +3,18 @@ import { Card } from '../../components/Card/Card'
 import { Container } from '../../components/Container/Container'
 import { HeaderTitle } from '../../components/Header/HeaderTitle'
 import { Title } from '../../components/Title/Title'
-import { useContext } from 'react'
-import { BooksContext } from '../../context/booksContext'
+import { useContext, useEffect, useState } from 'react'
+import { Book, BooksContext } from '../../context/booksContext'
 
 export function BookDetails() {
-  const { books, handleSetBooks } = useContext(BooksContext)
+  const { books } = useContext(BooksContext)
   const { id } = useParams()
+  const [book, setBook] = useState<Book | null>(null)
+
+  useEffect(() => {
+    const findedBook = books.filter((book) => book._id === id)[0]
+    setBook(findedBook)
+  }, [id, books])
 
   return (
     <Container>
@@ -16,33 +22,21 @@ export function BookDetails() {
 
       <div key={id} className="gap-4 grid grid-cols-1 md:grid-cols-2 mt-16">
         <div>
-          <h2 className="text-5xl font-bold text-evergreen">Nome do livro</h2>
+          <h2 className="text-5xl font-bold text-evergreen">{book?.title}</h2>
 
-          <p className="py-4 text-xl text-gray-500 font-light">Autor</p>
+          <p className="py-4 text-xl text-gray-500 font-light">
+            {book?.authors.join(', ')}
+          </p>
 
           <p className="text-gray-500 mt-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec
-            magna mollis, volutpat metus ut, convallis nisi. Sed vel neque
-            scelerisque, pretium magna vel, tempus massa. Phasellus vel erat a
-            orci egestas ultricies non in erat. Curabitur sodales et enim in
-            rutrum. Nunc tortor nunc, posuere eget convallis non, posuere vel
-            libero. Quisque tempus feugiat auctor. Pellentesque in libero leo.
-            Cras dui libero, posuere eu maximus et, sollicitudin eu quam. Fusce
-            dapibus arcu nec justo accumsan lobortis. Cras velit mauris, varius
-            ac tellus eget, tincidunt sagittis orci. Integer ullamcorper
-            consectetur eros ac gravida. Cras blandit eros venenatis massa
-            sodales, id pretium leo suscipit. Vivamus id lectus id lorem ornare
-            aliquet eget nec eros. Maecenas et fermentum risus, ac interdum
-            arcu. In odio erat, blandit vitae metus nec, fermentum porta lectus.
+            {book?.longDescription
+              ? book.longDescription
+              : book?.shortDescription}
           </p>
         </div>
 
         <div>
-          <img
-            src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/allen.jpg"
-            alt=""
-            className="w-full rounded-lg"
-          />
+          <img src={book?.thumbnailUrl} alt="" className="w-full rounded-lg" />
         </div>
       </div>
 
