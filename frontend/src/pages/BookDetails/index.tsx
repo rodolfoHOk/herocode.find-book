@@ -3,8 +3,11 @@ import { Card } from '../../components/Card/Card'
 import { Container } from '../../components/Container/Container'
 import { HeaderTitle } from '../../components/Header/HeaderTitle'
 import { Title } from '../../components/Title/Title'
+import { useContext } from 'react'
+import { BooksContext } from '../../context/booksContext'
 
 export function BookDetails() {
+  const { books, handleSetBooks } = useContext(BooksContext)
   const { id } = useParams()
 
   return (
@@ -47,13 +50,9 @@ export function BookDetails() {
         <Title title="Recomendações com base nesse livro" className="my-6" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          <Card id="1" />
-
-          <Card id="2" />
-
-          <Card id="3" />
-
-          <Card id="4" />
+          {books.map((book) => (
+            <Card key={book._id} id={book._id} book={book} />
+          ))}
         </div>
       </div>
     </Container>

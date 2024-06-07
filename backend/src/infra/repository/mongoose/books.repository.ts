@@ -75,10 +75,8 @@ class BooksMongooseRepository implements BooksRepository {
         {
           $match: {
             $or: [
-              { title: new RegExp(matches.title, 'i') },
-              { authors: new RegExp(matches.authors, 'i') },
-              { categories: new RegExp(matches.categories, 'i') },
-              { longDescription: new RegExp(matches.longDescription, 'i') },
+              { title: new RegExp(search, 'i') },
+              { longDescription: new RegExp(search, 'i') },
             ],
           },
         },

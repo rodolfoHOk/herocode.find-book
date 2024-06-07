@@ -14,6 +14,7 @@
 
 - classnames
 - react-router-dom
+- axios
 
 ### Backend
 
@@ -48,6 +49,9 @@
 - criar um usuário do banco de dados no MongoDB Atlas
 - copiar a string de conexão para o MongoDB Compass
 - adicionar a string de conexão com o nome de usuário e senha criados no .env DATABASE_URL
+- criar conta na plataforma da OpenAI
+- criar uma API Key plataforma da OpenAI
+- adicional a API Key no .env OPEN_AI_API_KEY
 - entrar na pasta backend
 - rodar o comando: npm run dev
 

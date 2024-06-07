@@ -1,10 +1,12 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import { Button } from '../../components/Button/Button'
 import { Card } from '../../components/Card/Card'
 import { Container } from '../../components/Container/Container'
 import { Header } from '../../components/Header/Header'
 import { Input } from '../../components/Input/Input'
 import { Title } from '../../components/Title/Title'
+import { searchBooks } from '../../services/books'
+import { BooksContext } from '../../context/booksContext'
 
 const genderBooks = [
   'Ação',
@@ -16,6 +18,7 @@ const genderBooks = [
 ]
 
 export function Home() {
+  const { books, handleSetBooks } = useContext(BooksContext)
   const [selectedGender, setSelectedGender] = useState<string[]>([])
 
   const handleSelected = useCallback(
@@ -28,6 +31,14 @@ export function Home() {
       }
     },
     [selectedGender]
+  )
+
+  const handleSubmit = useCallback(
+    async (search: string) => {
+      const response = await searchBooks(search)
+      handleSetBooks(response)
+    },
+    [handleSetBooks]
   )
 
   return (
@@ -53,23 +64,22 @@ export function Home() {
             Sobre o que você gostaria de receber uma recomendação de livro?
           </p>
 
-          <Input placeholder="Eu gostaria de ler..." />
+          <Input
+            placeholder="Eu gostaria de ler..."
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSubmit(e.currentTarget.value)
+              }
+            }}
+          />
         </div>
 
         <Title title="Livros  recomendados" className="mt-16" />
 
         <div className="my-6 grid lg:grid-cols-2 gap-5">
-          <Card id="1" />
-
-          <Card id="2" />
-
-          <Card id="3" />
-
-          <Card id="4" />
-
-          <Card id="5" />
-
-          <Card id="6" />
+          {books.map((book) => (
+            <Card key={book._id} id={book._id} book={book} />
+          ))}
         </div>
       </Container>
     </div>
