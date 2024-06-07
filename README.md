@@ -57,6 +57,8 @@
 
 ### Frontend
 
+- rodar o backend
+- renomear arquivo .env.example para .env
 - entrar na pasta frontend
 - rodar o comando: npm run dev
 - acessar: http://localhost:5173
